@@ -26,9 +26,12 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Run unit test
+      - name: Run basic test
+        run: python - "import flask"
+
+      - name: Build Docker image
         run: |
-          docker build -t flask-docker-app
+          docker build -t flask-docker-app .
 
   docker-push:
     needs: build
