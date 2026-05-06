@@ -41,7 +41,7 @@ jobs:
       - name: Build & Push Image
         run: |
           IMAGE=${{ secrets.DOCKER_USERNAME }}/flask-docker-app:latest
-          docker build -t $IMAGE
+          docker build -t $IMAGE .
           docker push $IMAGE
 
       # - name: Checkout code
