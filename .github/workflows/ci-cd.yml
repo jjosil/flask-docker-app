@@ -42,12 +42,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Login in to Docker Hub
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build & Push Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/flask-docker-app:latest .
-          docker push ${{ secrets.DOCKERHUB_TOKEN }}/flask-docker-app:latest
+          docker build -t ${{ vars.DOCKER_USERNAME }}/flask-docker-app:latest .
+          docker push ${{ vars.DOCKER_USERNAME }}/flask-docker-app:latest
